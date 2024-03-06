@@ -81,7 +81,7 @@ class Net(nn.Module):
         # CONCATENATION OF WEIGHTED FEATURES 
         weight_feature = concat(weight_feature_list).squeeze(dim=2)  
 
-        # BYPASSING THE STAM
+        # SPATIAL-TEMPORAL ATTENTION MODULE
         tmp_x = self.TemporalAttn(weight_feature)
         sp_x = self.SpatialAttn(weight_feature)
 
