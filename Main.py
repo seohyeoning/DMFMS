@@ -7,13 +7,12 @@ from pathlib import Path
 import time
 import random
 import os
-os.environ["CUBLAS_WORKSPACE_CONFIG"] = ":4096:8" 
 
 from Helpers.Variables import device, METRICS, WD, FILENAME_MODEL, FILENAME_HIST, FILENAME_HISTSUM, FILENAME_RES
 from Helpers.Dataloader import BIODataset, BIODataLoader 
 from Helpers.crl_utils import History 
 
-
+os.environ["CUBLAS_WORKSPACE_CONFIG"] = ":4096:8" 
 
 def Experiment(args):
     ##### SAVE DIR 
@@ -111,7 +110,7 @@ if __name__ == "__main__":
     # Data hyper-parameters
     parser.add_argument('--data_type', default='MS', choices=['MS', 'Drowsy', 'Stress', 'Distraction'])
     parser.add_argument('--n_channels', default=28)
-    parser.add_argument('--in_dim', default=[28,1,1,1,1], choices=[[28], [28,1], [28,1,1,1,1]], help='use for data resizing')
+    parser.add_argument('--in_dim', default=[28,1,1,1,1], choices=[[28], [28,1], [28,1,1,1,1]], help='use for data selection')
     parser.add_argument('--n_classes', default=2)
     parser.add_argument('--freq_time', default=750, help='frequency(250Hz)*time window(3sec.)')
     parser.add_argument('--include_sbj', default=[1,2,3,4,5,6,7,8,9,10,11,12,13], help='subject list')
