@@ -7,7 +7,6 @@ import random
 from .Variables import device
 
 
-
 def seed_everything(seed):
     random.seed(seed)
     np.random.seed(seed)
@@ -43,15 +42,12 @@ class BIODataLoader(DataLoader):
         super(BIODataLoader, self).__init__(*args, **kwargs)
         self.collate_fn = _collate_fn
     
-def _collate_fn(batch): # 배치사이즈 지정 방법 확인
+def _collate_fn(batch): 
     x_batch, y_batch = [], torch.Tensor().to(device)
     xe_batch, xc_batch, xr_batch, xp_batch, xg_batch = torch.Tensor().to(device), torch.Tensor().to(device), \
                                                        torch.Tensor().to(device), torch.Tensor().to(device), \
                                                        torch.Tensor().to(device)
     for (_x, _y) in batch:
-        # 1. 데이터(x)에서 EEG와 나머지 분리하기
-        # 2. 데이터 shape 3차원으로 맞춰주기
-        # 3. numpy -> tensor
         xe = _x[:, :-4]                        # EEG
         xc = torch.unsqueeze(_x[:, -4], 1)     # ECG
         xr = torch.unsqueeze(_x[:, -3], 1)     # Resp
