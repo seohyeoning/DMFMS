@@ -1,5 +1,5 @@
 # Dynamic multi-modal fusion for motion sickness classification (DMFMS)
-S.-H. Park, D.-K. Han, and S.-W. Lee, “Dynamic multi-modal fusion for
+- S.-H. Park, D.-K. Han, and S.-W. Lee, “Dynamic multi-modal fusion for
 biosignal-based motion sickness prediction in vehicles,” in 2024 46th
 Annu. Int. Conf. IEEE Eng. Med. Biol. Soc., 2024.
 -----
